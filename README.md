@@ -1,12 +1,12 @@
 
-##2D truss FEA
+#2D truss FEA
 
-Roadmap
+#Roadmap
 - 2D truss structure drawing
 - FEA analysis
 - Result print out with PDF
 - Update drawing tools
 -
 
-Project status
-WIP...2
+#Project status
+- setting up all the classes
