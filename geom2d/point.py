@@ -42,6 +42,7 @@ class Point:
         if self is other:
             return True
 
+            
         if not isinstance(other,Point):
             return False
 

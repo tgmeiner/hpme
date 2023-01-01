@@ -10,3 +10,4 @@
 
 #Project status
 - setting up all the classes
+- there's something fishy here

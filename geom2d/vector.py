@@ -125,9 +125,4 @@ class Vector:
         return nums.are_close_enough(self.u, other.u) and \
             nums.are_close_enough(self.v, other.v)
 
-
-
-
-
-
-
+    
