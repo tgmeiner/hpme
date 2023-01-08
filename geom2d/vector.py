@@ -3,7 +3,7 @@ import math
 from geom2d import nums
 
 class Vector:
-    def __init__(self,u,v):
+    def __init__(self, u, v):
         self.u = u
         self.v = v
 
@@ -24,11 +24,10 @@ class Vector:
     def scaled_by (self,factor):
         return Vector(factor * self.u, factor * self.v)
 
-
     #return the length of a vector (aka. its norm)
     @property
     def norm(self):
-        return math.sqrt(self.u ** 2 + self.v**2)
+        return math.sqrt(self.u ** 2 + self.v ** 2)
 
     #use our numeric comparison and pass in vector's norm
     @property
@@ -50,14 +49,9 @@ class Vector:
     def dot(self,other):
         return (self.u * other.u) + (self.v * other.v)
 
-    #projection of a vector over another vector; direction argument may not be a unit vector, so we
-    #normalize it to make sure our formulat works
-    def projection_over(self,direction):
-        return self.dot(direction.normalized())
-
     #implement the cross product
     def cross(self,other):
-        return (self.u * self.v )-(self.v * other.u)
+        return (self.u * other.v) - (self.v * other.u)
 
     #Using the dot and cross products, it’s easy to test whether two vectors are parallel or perpendicular to each other
     #just check if their cross product is zero...
@@ -104,6 +98,11 @@ class Vector:
     def opposite(self):
         return Vector(-self.u, -self.v)
 
+    #projection of a vector over another vector; direction argument may not be a unit vector, so we
+    #normalize it to make sure our formulat works
+    def projection_over(self,direction):
+        return self.dot(direction.normalized())
+
     #sine projection of vector for it's y vector quantity
     @property
     def sine(self):
@@ -126,3 +125,17 @@ class Vector:
             nums.are_close_enough(self.v, other.v)
 
     
+    #override string represetation for Vector
+    def __str__(self):
+        return f'({self.u}, {self.v}) with norm {self.norm}'
+
+
+    #Returns a string of the form: '(u, v) with norm N', where
+    #`u` and `v` are the components of the vector and `N` the
+    #norm.
+    def to_formatted_str(self, decimals: int):
+        u = round(self.u, decimals)
+        v = round(self.v, decimals)
+        norm = round(self.norm, decimals)
+
+        return f'({u}, {v}) with norm {norm}'

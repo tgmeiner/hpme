@@ -49,5 +49,8 @@ class Point:
         return nums.are_close_enough(self.x, other.x) and \
             nums.are_close_enough(self.y, other.y)
 
-    
+    # override strip representation for point
+    def __str__(self):
+        return f'({self.x},{self.y})'
+
 
